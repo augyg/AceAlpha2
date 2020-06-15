@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1 style="margin-bottom: 2%;">Welcome to the Ace Alpha!</h1>
+  <video src="/static/videos/Ace-Intro-Video.mp4" controls style="width: 50%; height: 50%; margin-top: 5%; margin-bottom: 5%;"></video>
+  <p style="margin-bottom: 5%">
+    Please enter your name and email in order to continue. 
+    
+  </p>
+  
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    {{ form.csrf_token }}
+    
+    <div class="form-group">
+      {{render_field(form.name, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.email, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.job_types, class_="form-control")}}
+    </div>
+    <p style="margin-bottom: 2%; margin-top: 4%;"> 
+      The Ace Alpha is meant to help us understand whether or not a solution like this will help you feel more confident for your next interview! We've all been there, 10 minutes before the most important interview yet and feeling super nervous. 
+      So we really hope that after this, you can easily communicate your unique talents :) 
+    </p>
+    <p>
+      In this alpha, we will ask you three interview questions that typically throw people off (including ourselves). The 3 will be a mix of general interview questions with other questions specific to your role. We will then send you a feedback report on your videos within 1-2 days. 
+    </p>
+
+    <!--<b>Note: Throughout the Alpha Version, PLEASE wait for page to redirect or your data will never be sent :( We're doing what we can to speed this up</b>
+    --><h6 style="margin-top: 5%; font-size: small;"> if this malfunctions at any point, you have a question, or maybe you just want to say "hey", please email spro0640@mylaurier.ca</h6>
+    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+    
+  </form>
+{% endblock %}
